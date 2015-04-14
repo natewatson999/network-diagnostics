@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
