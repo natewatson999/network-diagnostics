@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/natewatson999/network-diagnostics/issues"
   },
-  "homepage": "https://github.com/natewatson999/network-diagnostics"
+  "homepage": "https://github.com/natewatson999/network-diagnostics",
+  "dependencies": {
+    "imap": "^0.8.14",
+    "native-dns": "^0.7.0"
+  },
+  "devDependencies": {}
 }
