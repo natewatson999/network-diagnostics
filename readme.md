@@ -101,26 +101,62 @@ if (diagnostics.haveConnection() == false) {
 ### diagnostics.haveDNS
 This function returns a boolean value which states if it's possible to perform non-cached DNS lookups.
 ```
-if (diagnostics.haveDNS() == false) {
-	console.log("Start memorizing numbers. DNS isn't working.");
-}
+var checkDNS = diagnostics.haveDNS(function(result){
+	if (result == false) {
+		console.log("Start memorizing numbers. DNS isn't working.");
+	}
+});
 ```
 
 ### diagnostics.haveHTTP
 This function returns a boolean value which states if it's possible to perform non-cached HTTP requests.
 ```
-if (diagnostics.haveHTTP() == false) {
-	console.log("Don't worry, stackoverflow uses https, not http.");
-}
+var checkHTTP = diagnostics.haveHTTP(function(result){
+	if (result == false) {
+		console.log("Don't worry, stackoverflow uses https, not http.");
+	}
+});
 ```
 
 ### diagnostics.haveHTTPS
 This function returns a boolean value which states if it's possible to perform non-cached HTTP requests.
 ```
-if (diagnostics.haveHTTPS() == false) {
-	console.log("Uh oh. Without HTTPS, we can't get to stackoverflow to solve the problem we just found!");
-}
+var checkHTTPS = diagnostics.haveHTTPS(function(result){
+	if (result == false) {
+		console.log("Uh oh. Without HTTPS, we can't get to stackoverflow to solve the problem we just found!");
+	}
+});
 ```
 
 ##Standardized Test
+This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
+
+```
+var diagnoseProcedure = diagnostics.diagnose(function(result){
+	console.dir(result);
+	for (var index = 0; index< result.length; index++) {
+		console.log(diagnostics.getError(result[index]));
+	}
+});
+```
+
 ##Error Code Lookups
+diagnostics.getError is a function takes a numerical error code, and returns a string that relates to it.
+```
+console.log(diagnostics.getError(80)); /*NoHTTPconnection*/
+```
+
+As a general rule, every error code is the default port of the protocol that was tested, with a few logical exceptions. These are the codes which the function will actually evaluate:
+
+These error codes are going to be used in the future when tests are written for them. Until that point, they are not directly usable.
+
+| Num | Error                      |
+|-----|----------------------------|
+| 0   | "NormalNetworkActivity"    |
+| 1   | "NoConnection"             |
+| 4   | "NoIPv4Connection"         |
+| 6   | "NoIPv6Connection"         |
+| 7   | "DiagnosticsScriptFailure" |
+| 53  | "NoDNS"                    |
+| 80  | "NoHTTPconnection"         |
+| 443 | "NoHTTPSconnection"        |

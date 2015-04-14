@@ -231,7 +231,7 @@ diagnostics.getError = function(id) {
 		case 4: return "NoIPv4Connection";
 		case 6: return "NoIPv6Connection";
 		case 7: return "DiagnosticsScriptFailure";
-		case 53: return "NoDNS"
+		case 53: return "NoDNS";
 		case 80: return "NoHTTPconnection";
 		case 443: return "NoHTTPSconnection";
 		default: return "Unknown";
