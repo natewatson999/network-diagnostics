@@ -1,0 +1,30 @@
+{
+  "name": "network-diagnostics",
+  "version": "0.0.0",
+  "description": "Performs diagnostics on the network to determine network problems.",
+  "main": "diagnostics.js",
+  "scripts": {
+    "test": "node diagnosticsTester.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/natewatson999/network-diagnostics"
+  },
+  "keywords": [
+    "network",
+    "diagnostics",
+    "http",
+    "https",
+    "dns",
+    "IPv4",
+    "IPv6",
+    "failure",
+    "test"
+  ],
+  "author": "Nate Watson <natewatson999@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/natewatson999/network-diagnostics/issues"
+  },
+  "homepage": "https://github.com/natewatson999/network-diagnostics"
+}
