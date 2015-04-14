@@ -1,3 +1,7 @@
+/*
+This code is held in a joint copyright between Nate Watson and Oluwafunmiwo Juda Sholola, 2015. It is released under the MIT license.
+*/
+
 var os = require("os");
 var dns = require("native-dns");
 var http = require("http");
