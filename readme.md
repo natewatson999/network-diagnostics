@@ -148,8 +148,6 @@ console.log(diagnostics.getError(80)); /*NoHTTPconnection*/
 
 As a general rule, every error code is the default port of the protocol that was tested, with a few logical exceptions. These are the codes which the function will actually evaluate:
 
-These error codes are going to be used in the future when tests are written for them. Until that point, they are not directly usable.
-
 | Num | Error                      |
 |-----|----------------------------|
 | 0   | "NormalNetworkActivity"    |
@@ -160,3 +158,21 @@ These error codes are going to be used in the future when tests are written for 
 | 53  | "NoDNS"                    |
 | 80  | "NoHTTPconnection"         |
 | 443 | "NoHTTPSconnection"        |
+
+These error codes are going to be used in the future when tests are written for them. Until that point, they are not directly usable.
+
+| Num | Error                 |
+|-----|-----------------------|
+| 20  | "FTPFailure"          |
+| 22  | "SSHfailure"          |
+| 23  | "TelnetFailure"       |
+| 25  | "SMTPfailure"         |
+| 37  | "TimeProtocolFailure" |
+| 70  | "NoGopher"            |
+| 88  | "NoKerberosThankIKEA" |
+| 110 | "NoInsecurePOP3"      |
+| 143 | "NoInsecureIMAP"      |
+| 161 | "NoSNMP"              |
+| 194 | "NoIRC"               |
+| 993 | "NoSecureIMAP"        |
+| 995 | "NoSecurePOP3"        |
