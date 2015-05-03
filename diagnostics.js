@@ -6,6 +6,7 @@ var os = require("os");
 var dns = require("native-dns");
 var http = require("http");
 var https = require("https");
+var ping = require("ping");
 var diagnostics = {};
 var testURL = "google.com";
 diagnostics.getTestURL = function(){ return testURL; };
@@ -224,6 +225,11 @@ diagnostics.haveHTTPS = function(callback) {
 	return;
 	
 };
+diagnostics.havePing = function(callback) {
+	ping.sys.probe(testURL, function(reached) {
+		callback(reached);
+	});
+};
 diagnostics.getError = function(id) {
 	switch(id) {
 		case 0: return "NormalNetworkActivity";
@@ -231,25 +237,27 @@ diagnostics.getError = function(id) {
 		case 4: return "NoIPv4Connection";
 		case 6: return "NoIPv6Connection";
 		case 7: return "DiagnosticsScriptFailure";
+		case 8: return "PingNotUsable";
 		case 53: return "NoDNS";
 		case 80: return "NoHTTPconnection";
 		case 443: return "NoHTTPSconnection";
 		default: return "Unknown";
 		/*
 		case 20: return "FTPFailure";
-		case 21: return "CherRupaulTomParis";
 		case 22: return "SSHfailure";
 		case 23: return "TelnetFailure";
 		case 25: return "SMTPfailure";
 		case 37: return "TimeProtocolFailure";
 		case 70: return "NoGopher" ;
-		case 88: return "NoKerberosThankIKEA" ;
+		case 81: return "NoTor";
+		case 88: return "NoKerberos" ;
 		case 110: return "NoInsecurePOP3";
 		case 143: return "NoInsecureIMAP";
 		case 161: return "NoSNMP";
 		case 194: return "NoIRC" ;
 		case 993: return "NoSecureIMAP";
 		case 995: return "NoSecurePOP3";
+		case 5222: return "NoXMPP" ;
 		*/
 	}
 }; /*You could use a tree for this, but that would be work.*/
@@ -281,11 +289,19 @@ diagnostics.diagnose = function(callback) {
 		});
 		return;
 	};
+	var checkPing = function(errorSet) {
+		diagnostics.havePing(function(pingWorking){
+			if (pingWorking == false) {
+				errorSet[errorSet.length] = 8;
+			}
+			checkHTTP(errorSet);
+		});
+	};
 	diagnostics.haveDNS(function(haveDNS){
 		if (haveDNS == false) {
 			errors[errors.length] = 53;
 		}
-		checkHTTP(errors);
+		checkPing(errors);
 	});
 };
 module.exports = exports = diagnostics;
