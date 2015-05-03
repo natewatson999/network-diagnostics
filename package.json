@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
@@ -18,6 +18,7 @@
     "dns",
     "IPv4",
     "IPv6",
+    "ping",
     "failure",
     "test"
   ],
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/natewatson999/network-diagnostics",
   "dependencies": {
-    "imap": "^0.8.14",
+    "ping": "^0.1.9",
     "native-dns": "^0.7.0"
   },
   "devDependencies": {}
