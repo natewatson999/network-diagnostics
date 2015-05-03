@@ -127,6 +127,17 @@ var checkHTTPS = diagnostics.haveHTTPS(function(result){
 	}
 });
 ```
+### diagnostics.havePing
+This function returns a boolean value which states if ping is usable. Uses a callback function.
+```
+var checkPing = diagnostics.havePing(function(result){
+	if (result == true) {
+		console.log("ping works");
+	} else {
+		console.log("ping does not work");
+	}
+});
+```
 
 ##Standardized Test
 This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
