@@ -166,6 +166,7 @@ As a general rule, every error code is the default port of the protocol that was
 | 4   | "NoIPv4Connection"         |
 | 6   | "NoIPv6Connection"         |
 | 7   | "DiagnosticsScriptFailure" |
+| 8   | "PingNotUsable"            |
 | 53  | "NoDNS"                    |
 | 80  | "NoHTTPconnection"         |
 | 443 | "NoHTTPSconnection"        |
@@ -180,7 +181,8 @@ These error codes are going to be used in the future when tests are written for 
 | 25  | "SMTPfailure"         |
 | 37  | "TimeProtocolFailure" |
 | 70  | "NoGopher"            |
-| 88  | "NoKerberosThankIKEA" |
+| 81  | "NoTor"               |
+| 88  | "NoKerberos"          |
 | 110 | "NoInsecurePOP3"      |
 | 143 | "NoInsecureIMAP"      |
 | 161 | "NoSNMP"              |
