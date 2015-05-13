@@ -304,4 +304,9 @@ diagnostics.diagnose = function(callback) {
 		checkPing(errors);
 	});
 };
+/*
+var imap = require("./imapTester.js");
+diagnostics.haveInsecureImap = imap.InsecureImapWorks;
+diagnostics.haveSecureImap = imap.SecureImapWorks;
+*/
 module.exports = exports = diagnostics;
