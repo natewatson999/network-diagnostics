@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
@@ -20,6 +20,8 @@
     "IPv6",
     "ping",
     "failure",
+    "imap",
+    "imaps",
     "test"
   ],
   "author": "Nate Watson <natewatson999@gmail.com>",

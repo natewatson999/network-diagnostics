@@ -240,7 +240,9 @@ diagnostics.getError = function(id) {
 		case 8: return "PingNotUsable";
 		case 53: return "NoDNS";
 		case 80: return "NoHTTPconnection";
+		case 143: return "NoInsecureIMAP";
 		case 443: return "NoHTTPSconnection";
+		case 993: return "NoSecureIMAP";
 		default: return "Unknown";
 		/*
 		case 20: return "FTPFailure";
@@ -252,10 +254,8 @@ diagnostics.getError = function(id) {
 		case 81: return "NoTor";
 		case 88: return "NoKerberos" ;
 		case 110: return "NoInsecurePOP3";
-		case 143: return "NoInsecureIMAP";
 		case 161: return "NoSNMP";
 		case 194: return "NoIRC" ;
-		case 993: return "NoSecureIMAP";
 		case 995: return "NoSecurePOP3";
 		case 5222: return "NoXMPP" ;
 		*/
@@ -304,9 +304,7 @@ diagnostics.diagnose = function(callback) {
 		checkPing(errors);
 	});
 };
-/*
 var imap = require("./imapTester.js");
 diagnostics.haveInsecureImap = imap.InsecureImapWorks;
 diagnostics.haveSecureImap = imap.SecureImapWorks;
-*/
 module.exports = exports = diagnostics;
