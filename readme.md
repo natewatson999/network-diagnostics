@@ -139,6 +139,37 @@ var checkPing = diagnostics.havePing(function(result){
 });
 ```
 
+### diagnostics.haveInsecureImap and diagnostics.haveSecureImap
+These functions check if IMAP is usable, with and without security. Callback based. Note: These functions are not in the standard test procedure, because they need accounts. Because they need accounts, you should probably have a dedicated diagnostics account which has almost no rights, since this can result in leaked passwords.
+
+```
+var config = {
+	user: "jeremie@gmail.com",
+	password: "jerlita",
+	host: "imap.gmail.com",
+};
+var checkInsecureImap = diagnostics.haveInsecureImap(config, function(result) {
+	if (result == true) {
+		console.log("insecure imap works");
+	} else {
+		console.log("insecure imap does not work");
+	}
+});
+var checkSecureImap = diagnostics.haveSecureImap(config, function(result) {
+	if (result == true) {
+		console.log("secure imap works");
+	} else {
+		console.log("secure imap does not work");
+	}
+});
+```
+
+#### config specification
+* user: Mandatory, account name.
+* password: default is "".
+* host: default is "localhost".
+* port: default is 143 or 993 depending on the enabling of security.
+
 ##Standardized Test
 This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
 
@@ -169,7 +200,9 @@ As a general rule, every error code is the default port of the protocol that was
 | 8   | "PingNotUsable"            |
 | 53  | "NoDNS"                    |
 | 80  | "NoHTTPconnection"         |
+| 143 | "NoInsecureIMAP"           |
 | 443 | "NoHTTPSconnection"        |
+| 993 | "NoSecureIMAP"             |
 
 These error codes are going to be used in the future when tests are written for them. Until that point, they are not directly usable.
 
@@ -184,8 +217,6 @@ These error codes are going to be used in the future when tests are written for 
 | 81  | "NoTor"               |
 | 88  | "NoKerberos"          |
 | 110 | "NoInsecurePOP3"      |
-| 143 | "NoInsecureIMAP"      |
 | 161 | "NoSNMP"              |
 | 194 | "NoIRC"               |
-| 993 | "NoSecureIMAP"        |
 | 995 | "NoSecurePOP3"        |
