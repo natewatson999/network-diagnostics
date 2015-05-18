@@ -170,6 +170,23 @@ var checkSecureImap = diagnostics.haveSecureImap(config, function(result) {
 * host: default is "localhost".
 * port: default is 143 or 993 depending on the enabling of security.
 
+### diagnostics.haveInsecurePop and diagnostics.haveSecurePop
+These functions check if Pop3 is usable, with and without security. Callback based. Note: These functions are not in the standard test procedure, because of design consistency. 
+```
+var dealWithResult = function(result) {
+	if (result == true) {
+		console.log("This configuration is usable!");
+	} else {
+		console.log("This configuration is not usable! I'm going to blame comcast, even if that doesn't make sense!");
+	}
+};
+var host = "pop.yahoo.com"; /*I just came up with this, I don't think it's real, don't use it.*/
+diagnostics.haveSecurePop(dealWithResult, host);
+diagnostics.haveInsecurePop(dealWithResult, host);
+```
+
+Note: if host is not defined, "pop.google.com" will be used. 
+
 ##Standardized Test
 This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
 
@@ -200,9 +217,11 @@ As a general rule, every error code is the default port of the protocol that was
 | 8   | "PingNotUsable"            |
 | 53  | "NoDNS"                    |
 | 80  | "NoHTTPconnection"         |
+| 110 | "NoInsecurePOP3"           |
 | 143 | "NoInsecureIMAP"           |
 | 443 | "NoHTTPSconnection"        |
 | 993 | "NoSecureIMAP"             |
+| 995 | "NoSecurePOP3"             |
 
 These error codes are going to be used in the future when tests are written for them. Until that point, they are not directly usable.
 
@@ -216,7 +235,6 @@ These error codes are going to be used in the future when tests are written for 
 | 70  | "NoGopher"            |
 | 81  | "NoTor"               |
 | 88  | "NoKerberos"          |
-| 110 | "NoInsecurePOP3"      |
 | 161 | "NoSNMP"              |
 | 194 | "NoIRC"               |
-| 995 | "NoSecurePOP3"        |
+| 5222| "NoXMPP"              |
