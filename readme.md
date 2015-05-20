@@ -187,7 +187,7 @@ diagnostics.haveInsecurePop(dealWithResult, host);
 
 Note: if host is not defined, "pop.google.com" will be used. 
 
-##Standardized Test
+## Standardized Test
 This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
 
 ```
@@ -199,8 +199,9 @@ var diagnoseProcedure = diagnostics.diagnose(function(result){
 });
 ```
 
-##Error Code Lookups
+## Error Code Lookups
 diagnostics.getError is a function takes a numerical error code, and returns a string that relates to it.
+
 ```
 console.log(diagnostics.getError(80)); /*NoHTTPconnection*/
 ```
