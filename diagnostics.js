@@ -305,8 +305,8 @@ diagnostics.diagnose = function(callback) {
 	});
 };
 var email = require("./emailTester.js");
-diagnostics.haveInsecureImap = email.InsecureImapWorks;
-diagnostics.haveSecureImap = email.SecureImapWorks;
+diagnostics.haveInsecureImap = email.insecureImapWorks;
+diagnostics.haveSecureImap = email.secureImapWorks;
 diagnostics.haveInsecurePop = email.insecurePopTest;
 diagnostics.haveSecurePop = email.securePopTest;
 module.exports = exports = diagnostics;
