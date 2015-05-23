@@ -90,8 +90,8 @@ var securePopTest = function(callback, url) {
 	return;
 };
 var output = {};
-output.secureImapWorks = SecureImapWorks;
-output.insecureImapWorks = InsecureImapWorks;
+output.SecureImapWorks = SecureImapWorks;
+output.InsecureImapWorks = InsecureImapWorks;
 output.insecurePopTest = insecurePopTest;
 output.securePopTest = securePopTest;
 module.exports = exports = output;
