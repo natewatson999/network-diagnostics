@@ -74,28 +74,46 @@ var result = diagnostics.getTestURL(); /*result would be "google.com"*/
 diagnostics.setTestURL("yahoo.com");
 ```
 
-### diagnostics.haveIPv4
+### diagnostics.haveIPv4 and haveIPv4Async
 This function returns a boolean value which states if an IPv4 connection is usable, not counting the one for localhost.
 ```
 if (diagnostics.haveIPv4() == false) {
 	console.log("We have a problem.");
 }
+diagnostics.haveIPv4Async(function(result){
+	if (result==false) {
+		console.log("Somone go press that button on the router!");
+	}
+});
 ```
 
-### diagnostics.haveIPv6
+### diagnostics.haveIPv6 and haveIPv6Async
 This function returns a boolean value which states if an IPv6 connection is usable, not counting the one for localhost.
 ```
 if (diagnostics.haveIPv6() == false) {
 	console.log("We have a bad network.");
 }
+diagnostics.haveIPv6Async(function(result){
+	if (result==true) {
+		console.log("Yay! We can comply with standards from the 90s!");
+	}
+});
 ```
 
-### diagnostics.haveConnection
+### diagnostics.haveConnection and diagnostics.haveConnectionAsync
 This function returns a boolean value which states if an IP connection of any type is usable, not counting the one for localhost.
 ```
 if (diagnostics.haveConnection() == false) {
 	console.log("This is all there is. The outside world is a myth.");
 }
+
+diagnostics.haveConnectionAsync(function(result){
+	if (result == true) {
+		console.log("There's a whole world out there!");
+	} else {
+		console.log("This is all there is. The outside world is a myth.");
+	}
+});
 ```
 
 ### diagnostics.haveDNS

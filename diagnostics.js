@@ -65,6 +65,18 @@ diagnostics.haveConnection = function(){
 	}
 	return true;
 };
+diagnostics.haveConnectionAsync = function(callback) {
+	callback((diagnostics.haveIPv4() == true) || (diagnostics.haveIPv6() == true));
+	return;
+};
+diagnostics.haveIPv4Async = function(callback) {
+	callback((diagnostics.haveIPv4() == true));
+	return;
+};
+diagnostics.haveIPv6Async = function(callback) {
+	callback((diagnostics.haveIPv6() == true));
+	return;
+};
 diagnostics.haveDNS = function(callback) {
 	var checkIPv4DNS = function(){
 		var DNSanswer = "";
