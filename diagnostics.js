@@ -253,6 +253,7 @@ diagnostics.getError = function(id) {
 		case 53: return "NoDNS";
 		case 80: return "NoHTTPconnection";
 		case 110: return "NoInsecurePOP3";
+		case 123: return "NoNTP";
 		case 143: return "NoInsecureIMAP";
 		case 443: return "NoHTTPSconnection";
 		case 993: return "NoSecureIMAP";

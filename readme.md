@@ -237,6 +237,7 @@ As a general rule, every error code is the default port of the protocol that was
 | 53  | "NoDNS"                    |
 | 80  | "NoHTTPconnection"         |
 | 110 | "NoInsecurePOP3"           |
+| 123 | "NoNTP"                    |
 | 143 | "NoInsecureIMAP"           |
 | 443 | "NoHTTPSconnection"        |
 | 993 | "NoSecureIMAP"             |
