@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "imaps",
 	"pop",
 	"pops",
+	"NTP",
     "test"
   ],
   "author": "Nate Watson <natewatson999@gmail.com>",
@@ -36,7 +37,8 @@
     "ping": "^0.1.10",
     "native-dns": "^0.7.0",
     "imap-simple": "^1.5.0",
-	"poplib": "^0.1.7"
+	"poplib": "^0.1.7",
+	"ntp-client": "^0.5.3"
 	},
   "devDependencies": {}
 }
