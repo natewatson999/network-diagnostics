@@ -205,6 +205,19 @@ diagnostics.haveInsecurePop(dealWithResult, host);
 
 Note: if host is not defined, "pop.google.com" will be used. 
 
+### diagnostics.haveNTP
+This function takes a (URL or IP address) and a callback, and checks to see if an NTP connection is available from the address in question. "Thank you @moonpyk for porting the client to Node!". This function is not in the standard test procedure, because it requires input.
+```
+diagnostics.haveNTP("pool.ntp.org", function(result){
+	if (result==true) {
+		console.log("NTP is available from here.");
+	} else {
+		console.log("NTP is not available from here.");
+	}
+	return;
+});
+```
+
 ## Standardized Test
 This function performs every network test in the script that does not require any complex input from the user. Tests that require complex input must be run explicitly. It then returns the results as a number array in a callback function.
 
