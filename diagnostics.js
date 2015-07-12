@@ -321,4 +321,6 @@ diagnostics.haveInsecureImap = email.insecureImapWorks;
 diagnostics.haveSecureImap = email.secureImapWorks;
 diagnostics.haveInsecurePop = email.insecurePopTest;
 diagnostics.haveSecurePop = email.securePopTest;
+var times = require("./times.js");
+diagnostics.haveNTP = times.ntpTester;
 module.exports = exports = diagnostics;
