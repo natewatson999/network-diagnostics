@@ -1,6 +1,6 @@
 {
   "name": "network-diagnostics",
-  "version": "0.5.1",
+  "version": "0.5.3",
   "description": "Performs diagnostics on the network to determine network problems.",
   "main": "diagnostics.js",
   "scripts": {
@@ -38,7 +38,8 @@
     "native-dns": "^0.7.0",
     "imap-simple": "^1.5.0",
 	"poplib": "^0.1.7",
-	"ntp-client": "^0.5.3"
+	"ntp-client": "^0.5.3",
+	"speedconcat": "^1.0.2"
 	},
   "devDependencies": {}
 }

@@ -7,6 +7,7 @@ var dns = require("native-dns");
 var http = require("http");
 var https = require("https");
 var ping = require("ping");
+var speedconcat = require("speedconcat");
 var diagnostics = {};
 var testURL = "google.com";
 diagnostics.getTestURL = function(){ return testURL; };
@@ -79,7 +80,7 @@ diagnostics.haveIPv6Async = function(callback) {
 };
 diagnostics.haveDNS = function(callback) {
 	var checkIPv4DNS = function(){
-		var DNSanswer = "";
+		var workingConcatenator = new speedconcat.newConcatenator("");
 		var dns4Connection = dns.Request({
 			question: dns.Question({
 				name: testURL
@@ -104,7 +105,7 @@ diagnostics.haveDNS = function(callback) {
 				}
 				return;
 			}
-			DNSanswer += section;
+			workingConcatenator.append(section);
 		});
 		dns4Connection.on("end", function(){
 			if (!deactivate4) {

@@ -10,5 +10,6 @@ var ntpTester = function(url, callback){
 		return;
 	});
 };
+
 tests.haveNTP = ntpTester;
 module.exports = exports = tests;
